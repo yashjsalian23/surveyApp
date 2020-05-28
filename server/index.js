@@ -1,13 +1,17 @@
 const express = require('express');
 const authRoutes = require('./routes/authRoutes');
+const billingRoutes = require('./routes/billingRoutes');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 require('./models/Users');
 require('./services/passport'); //make sure passport is below the users schema
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use(cookieSession({
   maxAge : 2592000000,
@@ -22,6 +26,7 @@ app.get("/", (req, res) => {
 });
 
 authRoutes(app);
+billingRoutes(app);
 
 const PORT = process.env.PORT || 5000;
 
