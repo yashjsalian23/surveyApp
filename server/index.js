@@ -21,9 +21,7 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
-    res.send({message: "Hello World updated"});
-});
+
 
 authRoutes(app);
 billingRoutes(app);
