@@ -1,6 +1,7 @@
 const express = require('express');
 const authRoutes = require('./routes/authRoutes');
 const billingRoutes = require('./routes/billingRoutes');
+const surveyRoutes = require('./routes/surveyRoutes');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
