@@ -7,6 +7,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 require('./models/Users');
+require('./models/Surveys');
 require('./services/passport'); //make sure passport is below the users schema
 
 const app = express();
