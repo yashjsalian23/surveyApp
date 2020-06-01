@@ -1,4 +1,6 @@
 const express = require('express');
+require('./models/Users');
+require('./models/Surveys');
 const authRoutes = require('./routes/authRoutes');
 const billingRoutes = require('./routes/billingRoutes');
 const surveyRoutes = require('./routes/surveyRoutes');
@@ -7,8 +9,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-require('./models/Users');
-require('./models/Surveys');
+
 require('./services/passport'); //make sure passport is below the users schema
 
 const app = express();
