@@ -3,14 +3,11 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './header/Header';
 import Landing from './landing/Landing';
 import Dashboard from './dashboard/Dashboard';
+import SurveyNew from '../components/surveys/SurveyNew';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import './App.css';
 
-
-
-
-const surveyNew = () => <h1>New Survey</h1>;
 
 
 class App extends Component{
@@ -27,7 +24,7 @@ class App extends Component{
             <Route component={Header} />
             <Route path="/" exact component={Landing} />
             <Route path="/surveys" exact component={Dashboard} />
-            <Route path="/surveys/new" exact component={surveyNew} />
+            <Route path="/surveys/new" exact component={SurveyNew} />
           </div>
         </BrowserRouter>
       </div>
