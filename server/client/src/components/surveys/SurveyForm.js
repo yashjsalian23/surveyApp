@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 
 const FIELDS = [
@@ -18,10 +19,16 @@ class SurveyForm extends Component{
     
     render(){
         return(
-            <div>
+            <div style={{marginTop:"20px"}}>
                 <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
                     {this.renderFields()}
-                    <button type="submit">Submit</button>
+                    <Link to="/surveys" className="red btn-flat white-text">
+                        CANCEL
+                    </Link>
+                    <button className="teal btn-flat right white-text" type="submit">
+                        NEXT
+                        <i className="material-icons right">done</i>
+                    </button>
                 </form>
             </div>
         );
