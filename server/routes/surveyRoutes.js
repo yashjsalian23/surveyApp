@@ -1,4 +1,7 @@
 // const Survey = require('../models/Surveys');
+const _ = require('lodash');
+const Path = require('path-parser');
+const { URL } = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredit');
@@ -9,6 +12,11 @@ const Survey = mongoose.model('surveys');
 module.exports = app => {
     app.get("/api/surveys/thanks", (req, res) => {
         res.send("THANKS FOR YOUR FEEDBACK");
+    });
+
+    app.post("/api/surveys/webhooks", (req, res) => {
+        console.log(req.body);
+        res.send({});
     });
 
 
